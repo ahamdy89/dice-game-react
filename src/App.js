@@ -6,13 +6,9 @@ import GameLayout from './containers/game-layout/game-layout';
 
 function App() {
   return (
-      <Row>
-        <Col>
         <div>
           <GameLayout/>
         </div>
-        </Col>
-      </Row>
   );
 }
 
