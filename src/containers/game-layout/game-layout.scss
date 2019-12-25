@@ -1,0 +1,18 @@
+.ground-container{
+    position: relative;
+    height: 80vh;
+    border: 1px solid black;
+
+    .header-container{
+        &:after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            width: 50%;
+            border-bottom: 1px solid black;
+        }
+        .add-player-button {
+            margin: 15px 30px;
+        }
+    }
+}
