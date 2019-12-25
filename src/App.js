@@ -6,7 +6,7 @@ import GameLayout from './containers/game-layout/game-layout';
 
 function App() {
   return (
-        <div>
+        <div className="App">
           <GameLayout/>
         </div>
   );
