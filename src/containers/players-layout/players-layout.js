@@ -1,44 +1,54 @@
-import React from 'react';
-import {Row, Col} from 'antd';
+import React, {Component} from 'react';
+import AddForm from '../../components/add-player-form/add-player-form';
 import './players-layout.scss';
 import PlayerCard from '../../components/player-card/player-card';
+import {Modal} from 'antd';
+import { addPlayers } from '../../redux/actions/players';
+import {connect} from 'react-redux';
+
+class PlayersLayout extends Component {
+    state = {
+        modal : false,
+    }
+
+    toggle = () => {
+        this.setState({
+            modal : !this.state.modal,
+        })
+    }
+
+    handleSubmit = (values) => {
+        this.props.addPlayers(values);
+        this.setState({modal: false})
+
+    }
 
 
-const PlayersLayout = ({players}) => {
+
+    render() {
+        const players = this.props.players
     return (
-                    <div className="players-box">
-                        {/* {players === undefined ?
-                        <div>
-                            <p>No Players Added</p>
-                        </div>   
-                        :
-                        players.map((player, index) => {
-                            return (
-                                <div key={index}>
-                                    <PlayerCard player={player} number={index}/>
-                                </div>
-                            )
-                        })} */}
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
-                                    <PlayerCard/>
+            <div className="players-box">
+                {players === undefined ? ''
+                :
+                players.map((player, index) => {
+                    return <PlayerCard key={index} name={player} number={index + 1}/>
+                })
+                }
+                <PlayerCard add click={this.toggle}/>
+                <Modal
+                    title="Add new players"
+                    visible={this.state.modal}
+                    onCancel={this.toggle}
+                    footer={null}
+                >
+                    <AddForm submit={this.handleSubmit} values={players}/>
+                </Modal>
+            </div>
+           )
+ }
 
-
-                    </div>
-
-    )
 }
 
 
-
-export default PlayersLayout;
+export default connect(null,{addPlayers})(PlayersLayout);
