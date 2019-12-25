@@ -4,8 +4,8 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5%;
-    overflow: scroll;
-    justify-content: space-between;
+    overflow: auto;
+    justify-content: space-evenly;
     align-items: center;
     border: 1px solid black;
 }
