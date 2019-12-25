@@ -1,9 +1,11 @@
-.ground-container{
-    position: relative;
-    height: 80vh;
+.game-layout-container{
+    height: 60vh;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 
     .header-container{
+        height: 20%;
         &:after {
             content: '';
             position: absolute;
@@ -14,5 +16,11 @@
         .add-player-button {
             margin: 15px 30px;
         }
+    }
+    .players-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
