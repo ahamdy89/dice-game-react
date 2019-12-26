@@ -26,16 +26,20 @@ class PlayersLayout extends Component {
 
 
     render() {
-        const players = this.props.players
+        const {players, game} = this.props
     return (
             <div className="players-box">
-                {players === undefined ? ''
-                :
-                players.map((player, index) => {
+
+                {players.map((player, index) => {
                     return <PlayerCard key={index} name={player} number={index + 1}/>
-                })
+                })}
+
+                {game ? 
+                    null
+                
+                :
+                    <PlayerCard add click={this.toggle}/>
                 }
-                <PlayerCard add click={this.toggle}/>
                 <Modal
                     title="Add new players"
                     visible={this.state.modal}

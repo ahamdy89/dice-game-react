@@ -15,6 +15,7 @@ class GameLayout extends Component {
 
     render() {
         const players = this.props.newPlayers;
+        console.log(players)
         return (
                 <div className="game-layout-container">
                     <div className="header-container">
