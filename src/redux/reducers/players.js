@@ -1,7 +1,7 @@
 
 
 const INITIAL_STATE = {
-    players: []
+    players: [],
 }
 
 const playersReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +10,14 @@ const playersReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 players: action.payload
+            }
+        case 'ADD_CURRENT':
+            return {
+                ...state, 
+                players: state.players.map(
+                    (player, i) => player.active === true ? {...player, current: action.payload}
+                    : player
+                )
             }
         default:
             return state;
