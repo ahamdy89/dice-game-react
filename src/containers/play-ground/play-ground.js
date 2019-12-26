@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import './play-ground.scss';
 import PlayersLayout from '../players-layout/players-layout';
 import Header from '../../containers/header/header';
-import ButtonComponent from '../../components/button/button';
 import {withRouter} from 'react-router-dom';
+import RollingSide from '../../components/rolling-side/rolling-side';
 
 
 class PlayGround extends Component {
@@ -13,12 +13,17 @@ class PlayGround extends Component {
     render() {
         const players = this.props.newPlayers;
         return (
-                <div className="game-layout-container">
+                <div className="play-ground-container">
                     <div className="header-container">
                         <Header/>
                     </div>
-                    <div className="players-container">
-                        <PlayersLayout players={players} game/>
+                    <div className="game-playing">
+                        <div className="players-container">
+                            <PlayersLayout players={players} game/>
+                        </div>
+                        <div className="rolling-side">
+                            <RollingSide/>
+                        </div>
                     </div>
                 </div>
         );
@@ -28,6 +33,6 @@ class PlayGround extends Component {
 
 
 const mapStateToProps = state => ({
-    newPlayers: state.playersList.players.players
+    newPlayers: state.playersList.players
 })
 export default withRouter(connect(mapStateToProps)(PlayGround));

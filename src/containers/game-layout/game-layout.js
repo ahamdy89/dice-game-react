@@ -15,7 +15,6 @@ class GameLayout extends Component {
 
     render() {
         const players = this.props.newPlayers;
-        console.log(players)
         return (
                 <div className="game-layout-container">
                     <div className="header-container">
@@ -27,7 +26,7 @@ class GameLayout extends Component {
                     <div className="footer-container">
                         <ButtonComponent 
                         start
-                        disable ={players === undefined || players.length < 2 ? true : false}
+                        disable ={players.length < 2 ? true : false}
                         redirect ={this.redirect}
                         />
                     </div>
@@ -39,6 +38,6 @@ class GameLayout extends Component {
 
 
 const mapStateToProps = state => ({
-    newPlayers: state.playersList.players.players
+    newPlayers: state.playersList.players
 })
 export default withRouter(connect(mapStateToProps)(GameLayout));

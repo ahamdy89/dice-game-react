@@ -23,6 +23,19 @@ class PlayersLayout extends Component {
 
     }
 
+    // componentDidMount() {
+
+    //     const arr = ["ahmed","hamdy"]
+    //     const locations = [];
+    //     for (var i = 0; i < arr.length; i++) {
+    //         locations.push({
+    //             name: arr[i],
+    //             current:0,
+    //             winner:false
+    //         });
+    //     }
+    //     console.log(locations)
+    // }
 
 
     render() {
@@ -31,7 +44,7 @@ class PlayersLayout extends Component {
             <div className="players-box">
 
                 {players.map((player, index) => {
-                    return <PlayerCard key={index} name={player} number={index + 1}/>
+                    return <PlayerCard key={index} name={player.name} number={index + 1}/>
                 })}
 
                 {game ? 
