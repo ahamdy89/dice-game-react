@@ -7,20 +7,18 @@ import './add-player-form.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserMinus } from '@fortawesome/free-solid-svg-icons'
 
-const AddForm = ({submit , values}) => {
+const AddForm = ({submit}) => {
     return (
         <div>
     <Formik
       initialValues={{ players: ['',''] }}
       onSubmit={(values, {setSubmitting, resetForm}) =>
         setTimeout(() => {
-            console.log(values)
             setSubmitting(true);
             submit(values)
             resetForm();
             setSubmitting(false)
-          // alert(JSON.stringify(values, null, 2));
-        }, 500)
+        }, 100)
       }
       render={({ values, isSubmitting, handleReset, dirty }) => (
         <Form>

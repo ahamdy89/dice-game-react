@@ -1,7 +1,7 @@
 
 
 const INITIAL_STATE = {
-    players: {players: []}
+    players: []
 }
 
 const playersReducer = (state = INITIAL_STATE, action) => {
