@@ -13,7 +13,7 @@ class PlayerCard extends Component {
                 :
                 <div>
                     <div className="player-number">
-                        <p>{`Player ${number + 1}`}</p>
+                        <p>{`Player ${number}`}</p>
                     </div>
                     <div className="player-name">
                         <p>{name}</p>

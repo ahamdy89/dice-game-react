@@ -5,7 +5,7 @@
     flex-direction: column;
 
     .header-container{
-        height: 20%;
+        height: 10%;
         &:after {
             content: '';
             position: absolute;
@@ -13,8 +13,11 @@
             width: 50%;
             border-bottom: 1px solid black;
         }
-        .add-player-button {
+        .header-content {
             margin: 15px 30px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: baseline;
         }
     }
     .players-container {
@@ -22,5 +25,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .footer-container {
+        height: 10%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px;
     }
 }
