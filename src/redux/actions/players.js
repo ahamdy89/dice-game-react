@@ -1,18 +1,22 @@
 export const addPlayers = (players) => {
-    const playersArray = players.players;
-    const playerObject = [];
-    for (let i = 0; i < playersArray.length; i++) {
-        playerObject.push({
-            name: playersArray[i],
+    const playersList = players.players;
+    const playerArray = [];
+
+    playersList.map((p, i) => {
+        playerArray.push({
+            name: playersList[i],
             current:0,
             active: false,
             winner:false
         });
-    }
+        playerArray[0].active = true;
+        return playerArray;
+    })
+
     return dispatch => {
         dispatch({
         type: 'ADD_PLAYERS',
-        payload: playerObject
+        payload: playerArray
         })
     }
 }

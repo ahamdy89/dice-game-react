@@ -1,5 +1,15 @@
 .rolling-components {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     div {
         margin: 20px;
+    }
+    .dice-img{
+        width: 100px;
+        height: 80px;
+        img {
+            width: 100%;
+        }
     }
 }
