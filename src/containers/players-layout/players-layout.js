@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AddForm from '../../components/add-player-form/add-player-form';
+import AddForm from '../../components/forms/add-player-form/add-player-form';
 import './players-layout.scss';
 import PlayerCard from '../../components/player-card/player-card';
 import {Modal} from 'antd';
