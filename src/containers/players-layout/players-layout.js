@@ -18,7 +18,9 @@ class PlayersLayout extends Component {
     }
 
     handleSubmit = (values) => {
-        this.props.addPlayers(values);
+        const {gamePLayers}= this.props;
+
+        this.props.addPlayers(values, gamePLayers);
         this.setState({modal: false})
 
     }
@@ -66,13 +68,15 @@ class PlayersLayout extends Component {
                     onCancel={this.toggle}
                     footer={null}
                 >
-                    <AddForm submit={this.handleSubmit} values={players}/>
+                    <AddForm submit={this.handleSubmit} values={players} />
                 </Modal>
             </div>
            )
  }
 
 }
+const mapStateToProps = state => ({
+    gamePLayers: state.playersList.players
+})
 
-
-export default connect(null,{addPlayers})(PlayersLayout);
+export default connect(mapStateToProps,{addPlayers})(PlayersLayout);

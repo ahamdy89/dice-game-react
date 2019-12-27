@@ -1,6 +1,5 @@
 export const nextPlayer = (players) => {
     let offset;
-    const length = players.length;
 
         let next = players.map((player,index, players)=> {
 
