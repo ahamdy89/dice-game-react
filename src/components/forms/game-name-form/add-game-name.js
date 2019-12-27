@@ -6,10 +6,12 @@ const GameNameForm = ({submit}) => {
         <div>
             <Formik
             initialValues={{gameName: ''}}
-            onSubmit={(values, actions) => {
+            onSubmit={(values, {setSubmitting, resetForm}) => {
                 setTimeout(() => {
+                setSubmitting(true);
                 submit(values)
-                actions.setSubmitting(false);
+                resetForm();
+                setSubmitting(false);
                 }, 500);
             }}
             render={({values}) => (

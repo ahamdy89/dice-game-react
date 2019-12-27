@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import GameNameForm from '../../components/forms/game-name-form/add-game-name';
 import ButtonComponent from '../../components/button/button';
+import {gameName} from '../../redux/actions/gameName';
+import {connect} from 'react-redux';
+
 import {Modal} from 'antd';
 
 
 class Header extends Component {
     state = {
         newGameModal : false,
-        gameName: ''
     }
 
     toggle = () => {
@@ -17,17 +19,19 @@ class Header extends Component {
     }
 
     handleSubmit = (values) => {
+        this.props.gameName(values);
         this.setState({
-            gameName: values.gameName,
-            newGameModal: false
+            newGameModal : !this.state.newGameModal,
         })
     }
 
     render() {
+        const name = this.props.newName;
+        console.log(name)
         return (
             <div className="header-content">
                 <ButtonComponent new click={this.toggle}/>
-                {this.state.gameName === '' ? '' : <div><p>{this.state.gameName}</p></div>}
+                {name.gameName === '' ? '' : <div><p>{name.gameName}</p></div>}
                 <Modal
                     title="Enter Game Name"
                     visible={this.state.newGameModal}
@@ -41,5 +45,11 @@ class Header extends Component {
         );
     }
 }
+const mapStateToProps = state => ({
+    // newName: state.gameName.name
+    newName: state.playersList.name
 
-export default Header;
+})
+
+
+export default connect(mapStateToProps, {gameName})(Header);
