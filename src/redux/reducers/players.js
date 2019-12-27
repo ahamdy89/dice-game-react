@@ -23,7 +23,7 @@ const playersReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state, 
                 players: state.players.map(
-                    (player, i) => player.active  ? {...player, score: player.current + player.score}
+                    (player, i) => player.active  ? {...player, score: player.current + player.score, current : 0}
                     : player
                 )
             }
