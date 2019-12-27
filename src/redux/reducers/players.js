@@ -2,6 +2,7 @@
 
 const INITIAL_STATE = {
     players: [],
+    name: ''
 }
 
 const playersReducer = (state = INITIAL_STATE, action) => {
@@ -31,6 +32,11 @@ const playersReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 players: action.payload
+            }
+        case 'ADD_NAME':
+            return {
+                name: action.payload,
+                players: []
             }
         default:
             return state;
