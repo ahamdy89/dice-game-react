@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import './play-ground.scss';
 import PlayersLayout from '../players-layout/players-layout';
 import Header from '../../containers/header/header';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Redirect} from 'react-router-dom';
 import RollingSide from '../../components/rolling-side/rolling-side';
 
 
@@ -12,6 +12,9 @@ class PlayGround extends Component {
 
     render() {
         const players = this.props.newPlayers;
+        if (players.length === 0) {
+            return  <Redirect to='/'/>;
+        }
         return (
                 <div className="play-ground-container">
                     <div className="header-container">
