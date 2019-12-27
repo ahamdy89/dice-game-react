@@ -15,6 +15,7 @@ class RollingSide extends Component {
     
     rollDice = () => {
         let players = this.props.newPlayers;
+        if (players.find(player => player.winner)) return;
         let dice = Math.floor(Math.random() * 6) + 1;
         if(dice === 1 ) {
             this.props.nextPlayer(players)
@@ -30,7 +31,10 @@ class RollingSide extends Component {
       }
 
       hold = () => {
+        let players = this.props.newPlayers;
+        if (players.find(player => player.winner)) return;
         this.props.addScore()
+
       }
 
 
