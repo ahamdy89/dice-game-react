@@ -8,7 +8,6 @@ export const nextPlayer = (players) => {
         offset = index;
             return {
                 ...player,
-                current: 0,
                 active: !player.active
             }
         }

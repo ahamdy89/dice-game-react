@@ -27,12 +27,10 @@ class RollingSide extends Component {
       nextPlayer = () => {
         let players = this.props.newPlayers;
         this.props.nextPlayer(players);
-        this.setState({dice:0})
       }
 
       hold = () => {
         this.props.addScore()
-        this.nextPlayer();
       }
 
 
