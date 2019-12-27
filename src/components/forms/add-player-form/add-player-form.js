@@ -14,12 +14,10 @@ const AddForm = ({submit , values}) => {
       initialValues={{ players: ['',''] }}
       onSubmit={(values, {setSubmitting, resetForm}) =>
         setTimeout(() => {
-            console.log(values)
             setSubmitting(true);
             submit(values)
             resetForm();
             setSubmitting(false)
-          // alert(JSON.stringify(values, null, 2));
         }, 500)
       }
       render={({ values, isSubmitting, handleReset, dirty }) => (
@@ -41,12 +39,6 @@ const AddForm = ({submit , values}) => {
                       >
                         <FontAwesomeIcon icon={faUserMinus} />
                       </button>
-                      {/* <button
-                        type="button"
-                        onClick={() => arrayHelpers.insert(index+1, '')}
-                      >
-                        +
-                      </button> */}
                     </div>
                   ))
                 ) : (

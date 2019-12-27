@@ -41,12 +41,11 @@ class RollingSide extends Component {
     render() {
         let dice = this.state.dice;
         let players = this.props.newPlayers;
-        console.log(players)
         return (
             <div className="rolling-components">
                 <div>
                     {players.map((player, index) => {
-                        return <p key={index}>{player.active ? <p>{player.current}</p> : null}</p>
+                        return <p key={index}>{player.active ? player.current : null}</p>
                     })}
                 </div>
                 <div className="dice-img">
