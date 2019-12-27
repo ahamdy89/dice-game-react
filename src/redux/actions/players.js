@@ -1,6 +1,9 @@
-export const addPlayers = (players) => {
+export const addPlayers = (players, gamePlayers) => {
     const playersList = players.players;
-    const playerArray = [];
+    let playerArray = [];
+    if (gamePlayers.length > 0){
+        playerArray = gamePlayers
+    }
 
     playersList.map((p, i) => {
         playerArray.push({
