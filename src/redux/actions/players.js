@@ -7,7 +7,8 @@ export const addPlayers = (players) => {
             name: playersList[i],
             current:0,
             active: false,
-            winner:false
+            winner:false,
+            score: 0
         });
         playerArray[0].active = true;
         return playerArray;
