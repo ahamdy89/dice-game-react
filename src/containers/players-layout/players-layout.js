@@ -44,7 +44,14 @@ class PlayersLayout extends Component {
             <div className="players-box">
 
                 {players.map((player, index) => {
-                    return <PlayerCard key={index} name={player.name} number={index + 1}/>
+                    return <PlayerCard 
+                    key={index} 
+                    name={player.name} 
+                    number={index + 1}
+                    active={player.active}
+                    score ={player.score}
+                    winner={player.winner}
+                    />
                 })}
 
                 {game ? 

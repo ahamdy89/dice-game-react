@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ButtonComponent from '../button/button';
 import {connect} from 'react-redux';
 import {addCurrent} from '../../redux/actions/current';
+import {nextPlayer} from '../../redux/actions/nextPlayer';
+import {addScore} from '../../redux/actions/hold';
 
 import './rolling-side.scss';
 
@@ -12,14 +14,26 @@ class RollingSide extends Component {
     }
     
     rollDice = () => {
-        // if (this.state.players.find(player => player.winner)) return;
-    
+        let players = this.props.newPlayers;
         let dice = Math.floor(Math.random() * 6) + 1;
-        this.setState({dice})
-        this.props.addCurrent(dice);
-    
+        if(dice === 1 ) {
+            this.props.nextPlayer(players)
+        }else {
+            this.setState({dice})
+            this.props.addCurrent(dice);
+        }
       }
 
+      nextPlayer = () => {
+        let players = this.props.newPlayers;
+        this.props.nextPlayer(players);
+        this.setState({dice:0})
+      }
+
+      hold = () => {
+        this.props.addScore()
+        this.nextPlayer();
+      }
 
 
     render() {
@@ -40,7 +54,7 @@ class RollingSide extends Component {
                     <ButtonComponent roll click={this.rollDice}/>
                 </div>
                 <div>
-                    <ButtonComponent hold />
+                    <ButtonComponent hold click={this.hold} />
                 </div>
             </div>
         )
@@ -50,4 +64,4 @@ class RollingSide extends Component {
 const mapStateToProps = state => ({
     newPlayers: state.playersList.players
 })
-export default connect(mapStateToProps,{addCurrent})(RollingSide);
+export default connect(mapStateToProps,{addCurrent, nextPlayer, addScore})(RollingSide);

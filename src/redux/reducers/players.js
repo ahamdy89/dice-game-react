@@ -15,9 +15,22 @@ const playersReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state, 
                 players: state.players.map(
-                    (player, i) => player.active === true ? {...player, current: action.payload}
+                    (player, i) => player.active  ? {...player, current: player.current + action.payload}
                     : player
                 )
+            }
+        case 'ADD_SCORE': 
+            return {
+                ...state, 
+                players: state.players.map(
+                    (player, i) => player.active  ? {...player, score: player.current + player.score}
+                    : player
+                )
+            }
+        case 'NEXT_PLAYER':
+            return {
+                ...state,
+                players: action.payload
             }
         default:
             return state;
