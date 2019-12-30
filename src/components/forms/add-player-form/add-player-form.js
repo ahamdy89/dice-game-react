@@ -41,16 +41,12 @@ const AddForm = ({submit , values}) => {
                       </button>
                     </div>
                   ))
-                ) : (
-                  <button type="button" onClick={() => arrayHelpers.push('')}>
-                    Add Player
-                  </button>
-                )}
+                ) : null}
                   <div className="form-buttons">
                     <Button type="button" onClick={handleReset} disabled={!dirty || isSubmitting}>
                       Reset
                     </Button>
-                    <button type="submit" disabled={isSubmitting} className="btn-item primary-btn">
+                    <button type="submit" disabled={isSubmitting} >
                       Submit
                     </button>
                     </div>
