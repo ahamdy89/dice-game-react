@@ -24,6 +24,7 @@ class GameLayout extends Component {
                         <PlayersLayout players={players}/>
                     </div>
                     <div className="footer-container">
+                        <p>{players.length < 2 ? 'Minimum two players to start the game' : null}</p>
                         <ButtonComponent 
                         start
                         disable ={players.length < 2 ? true : false}
