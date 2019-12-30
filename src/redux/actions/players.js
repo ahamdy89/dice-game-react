@@ -1,8 +1,10 @@
 export const addPlayers = (players, gamePlayers) => {
+    console.log(players)
+    console.log(gamePlayers)
     const playersList = players.players;
     let playerArray = [];
     if (gamePlayers.length > 0){
-        playerArray = gamePlayers
+        playerArray = playerArray.concat(gamePlayers)
     }
 
     playersList.map((p, i) => {
